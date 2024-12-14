@@ -1,43 +1,25 @@
-import Directory from './components/directory/directory.components';
+import { Routes, Route } from "react-router-dom";
+
+import Navigation from "./routes/navigation/navigation.component.jsx"
+import Home from "./routes/home/home.component";
+import SignIn from "./routes/sign-in/sign-in.component.jsx";
+
+
+
+const Shop = () => {
+  return <h1>This is shop page!</h1>
+}
 
 const App = () => {
-
-  const categories = [
-    {
-      id: 1,
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-      title: 'Hats',
-      subtitle: 'Shop Now'
-    },
-    {
-      id: 2,
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-      title: 'Jackets',
-      subtitle: 'Shop Now'
-    },
-    {
-      id: 3,
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-      title: 'Sneakers',
-      subtitle: 'Shop Now'
-    },
-    {
-      id: 4,
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-      title: 'Womens',
-      subtitle: 'Shop Now'
-    },
-    {
-      id: 5,
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-      title: 'Mens',
-      subtitle: 'Shop Now'
-    }
-  ]
-
-  return (
-      <Directory categories={categories}/>
-  );
+    return (
+      <Routes>
+          <Route path='/' element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path='shop' element={<Shop />} />
+            <Route path='sign-in' element={<SignIn />}/>
+         </Route>
+      </Routes>
+    )
 }
 
 export default App;
